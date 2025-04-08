@@ -88,3 +88,10 @@ resource "aws_security_group" "taskoverflow" {
     Name = "taskoverflow_security_group"
   }
 }
+
+load_balancer {
+target_group_arn = aws_lb_target_group.taskoverflow.arn
+container_name = "taskoverflow"
+container_port = 6400
+}
+
